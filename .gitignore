@@ -1,0 +1,8 @@
+# Ignore .db files
+*.db
+
+# Ignore files in /lib folder
+/lib/*
+
+# Ignore .DS_Store files everywhere
+**/.DS_Store

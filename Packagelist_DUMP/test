@@ -1,0 +1,381 @@
+Package: curl
+Priority: optional
+Section: web
+Installed-Size: 308
+Maintainer: Domenico Andreoli <cavok@debian.org>
+Architecture: arm
+Version: 7.18.2-8lenny3
+Replaces: curl-ssl
+Provides: curl-ssl
+Depends: libc6 (>= 2.7-1), libcurl3 (>= 7.16.2-1), zlib1g (>= 1:1.1.4)
+Filename: pool/main/c/curl/curl_7.18.2-8lenny3_arm.deb
+Size: 207336
+MD5sum: f43cb3b645344bf02f5b533a97a96e54
+SHA1: 81c6d16c67077fe181115f93705bf4f96514c41e
+SHA256: c76317244550a151a09e43c2004cae5b996f55bb7bbc8a1545e8163189c63bbf
+Description: Get a file from an HTTP, HTTPS or FTP server
+ curl is a client to get files from servers using any of the supported
+ protocols. The command is designed to work without user interaction
+ or any kind of interactivity.
+ .
+ curl offers a busload of useful tricks like proxy support, user
+ authentication, ftp upload, HTTP post, file transfer resume and more.
+Homepage: http://curl.haxx.se
+Tag: implemented-in::c, interface::commandline, network::client, protocol::{ftp,http,ipv6,kerberos,ldap,ssl}, role::program, scope::utility, use::downloading, use::synchronizing, works-with::file
+
+Package: curlftpfs
+Priority: optional
+Section: utils
+Installed-Size: 92
+Maintainer: Debian QA Group <packages@qa.debian.org>
+Architecture: arm
+Source: curlftpfs (0.9.1-3)
+Version: 0.9.1-3+b2
+Depends: libc6 (>= 2.7-1), libcomerr2 (>= 1.33-3), libcurl3-gnutls (>= 7.16.2-1), libfuse2 (>= 2.6), libgcrypt11 (>= 1.4.0), libglib2.0-0 (>= 2.12.0), libgnutls26 (>= 2.2.0-0), libgpg-error0 (>= 1.4), libidn11 (>= 0.5.18), libkrb53 (>= 1.6.dfsg.2), libldap-2.4-2 (>= 2.4.7), libtasn1-3 (>= 0.3.4), zlib1g (>= 1:1.1.4), fuse-utils
+Filename: pool/main/c/curlftpfs/curlftpfs_0.9.1-3+b2_arm.deb
+Size: 25246
+MD5sum: 85f1b11baa902d1bd38c909c4ded836e
+SHA1: cc1fc300aa3ec827685073f49c2a0ad9bbab6e65
+SHA256: 213163587dd0fc6ec6c62a56896a1472d1f82715f45571566ac5f3a72c2d8ecd
+Description: filesystem to access FTP hosts based on FUSE and cURL
+ CurlFtpFS is a tool to mount FTP hosts as local directories. It connects
+ to a FTP server and maps its directory structure to the local filesystem.
+ .
+ Based on FUSE (filesystem in userspace) and the cURL library, CurlFtpFS
+ has some features that distinguish it over other FTP filesystems:
+  * support for SSLv3 and TLSv1
+  * connecting through tunneling HTTP proxies
+  * automatic reconnection if the server times out
+  * conversion of absolute symlinks to point back into the FTP filesystem
+Homepage: http://curlftpfs.sourceforge.net
+Tag: implemented-in::c, protocol::ftp, role::program
+
+Package: curves
+Priority: optional
+Section: devel
+Installed-Size: 111
+Maintainer: Marc Singer <elf@debian.org>
+Architecture: arm
+Version: 0.8.19+b1
+Depends: libc6 (>= 2.3.5-1), libgcc1 (>= 1:4.0.2), libstdc++6 (>= 4.0.2-4)
+Suggests: cvs
+Filename: pool/main/c/curves/curves_0.8.19+b1_arm.deb
+Size: 56292
+MD5sum: 5748c943c38ad381ab77bdad69b15411
+SHA1: 08faa034765b9d0d1a54027847c14151e9689ac1
+SHA256: 23fde48927d157530f51a955f440f2004a90ebb59b0f7f43d5ca97fff4c2df66
+Description: colorful console interface for CVS version control
+ CurVeS performs two functions.  It provides a menu and command
+ completion interface to CVS so that inexperienced users can learn the
+ features of CVS without documentation.  This includes the creation of
+ some meta-features built upon standard CVS commands that commonly are
+ used together.  The second function of CurVeS is to provide visual
+ presentation of a project directory so that the status of each file
+ is comprehensible at a glance.  CurVeS uses color, when available, to
+ accent the file classification marks.
+Tag: devel::rcs, interface::text-mode, role::program, scope::utility, use::browsing, use::synchronizing
+
+Package: customdeb
+Priority: optional
+Section: admin
+Installed-Size: 68
+Maintainer: Joachim Breitner <nomeata@debian.org>
+Architecture: all
+Version: 0.1
+Depends: debhelper, devscripts, libfile-copy-recursive-perl, libfile-temp-perl, libparse-debcontrol-perl, libparse-debianchangelog-perl, perl
+Filename: pool/main/c/customdeb/customdeb_0.1_all.deb
+Size: 9124
+MD5sum: 4c328acc36e169be82638354d8e9cc07
+SHA1: 904139a93802be544e7d8681e16764d2f27e8760
+SHA256: cd69aa46562a29f9063b4cab96b0e9651c019d27118a9c1d3f3537f41b9245e8
+Description: Modfies binary Debian package
+ customdeb will modify binary Debian packages based on
+ information given in a simple file. It can
+   * Add or replace files
+   * Change permissions of files
+ It can be used to distribute packages with local changes
+ (configuration, fixes) locally, and is not meant to create
+ packages for the official Debian archive.
+Tag: devel::packaging, implemented-in::perl, role::program, scope::utility, suite::debian, works-with::software:package
+
+Package: libc6
+Priority: required
+Section: libs
+Installed-Size: 10908
+Maintainer: GNU Libc Maintainers <debian-glibc@lists.debian.org>
+Architecture: arm
+Source: glibc
+Version: 2.7-18
+Provides: glibc-2.7-1
+Depends: libgcc1
+Suggests: locales, glibc-doc
+Conflicts: libterm-readline-gnu-perl (<< 1.15-2), tzdata (<< 2007k-1), tzdata-etch
+Filename: pool/main/g/glibc/libc6_2.7-18_arm.deb
+Size: 4798922
+MD5sum: 3538869917eef69589e9344f908c4b18
+SHA1: af2be58ed36704212f74bcec9283675eef841d2e
+SHA256: 09e4b07061904b2dd66ec39e491836d3bddef216b100b0dca70112913f79b0e4
+Description: GNU C Library: Shared libraries
+ Contains the standard libraries that are used by nearly all programs on
+ the system. This package includes shared versions of the standard C library
+ and the standard math library, as well as many others.
+Tag: devel::lang:c, devel::library, implemented-in::c, protocol::ipv6, role::shared-lib, suite::gnu
+
+Package: libc6-dbg
+Priority: extra
+Section: libdevel
+Installed-Size: 15820
+Maintainer: GNU Libc Maintainers <debian-glibc@lists.debian.org>
+Architecture: arm
+Source: glibc
+Version: 2.7-18
+Provides: libc-dbg
+Depends: libc6 (= 2.7-18)
+Filename: pool/main/g/glibc/libc6-dbg_2.7-18_arm.deb
+Size: 5072728
+MD5sum: 85358fc5295f3a0d33ba6b699e46cfdf
+SHA1: 88d1f688ccfb0421143f00891c5303c4d31ef87e
+SHA256: 9fe5594c4356be4b6c81459b5f1a551f50d32dab0abd00c5381e76099a541cf4
+Description: GNU C Library: Libraries with debugging symbols
+ Contains unstripped shared libraries.
+ This package is provided primarily to provide a backtrace with
+ names in a debugger, which makes it somewhat easier to interpret core
+ dumps. The libraries are installed in /usr/lib/debug and can be
+ used by placing that directory in LD_LIBRARY_PATH.
+ Most people will not need this package.
+Tag: devel::{debugger,lang:c,library}, implemented-in::c, role::shared-lib, suite::gnu
+
+Package: libc6-dev
+Priority: optional
+Section: libdevel
+Installed-Size: 8740
+Maintainer: GNU Libc Maintainers <debian-glibc@lists.debian.org>
+Architecture: arm
+Source: glibc
+Version: 2.7-18
+Replaces: man-db (<= 2.3.10-41), gettext (<= 0.10.26-1), ppp (<= 2.2.0f-24), libgdbmg1-dev (<= 1.7.3-24)
+Provides: libc-dev
+Depends: libc6 (= 2.7-18), linux-libc-dev
+Recommends: gcc | c-compiler
+Suggests: glibc-doc, manpages-dev
+Conflicts: libstdc++2.10-dev (<< 1:2.95.2-15), gcc-2.95 (<< 1:2.95.3-8), binutils (<< 2.17cvs20070426-1), libc-dev
+Filename: pool/main/g/glibc/libc6-dev_2.7-18_arm.deb
+Size: 2316356
+MD5sum: 08e04720fc3e11e6cd58a0e65536f3f3
+SHA1: b2f1f12a9a89cf80e56699dcfb3c411bf638180b
+SHA256: ad08079fdb4c3a919a022f5617d7d39306826edd9963f28aec2871d1d9aa02b6
+Description: GNU C Library: Development Libraries and Header Files
+ Contains the symlinks, headers, and object files needed to compile
+ and link programs which use the standard C library.
+Build-Essential: yes
+Tag: devel::lang:c, devel::library, implemented-in::c, role::devel-lib, suite::gnu
+
+Package: libc6-pic
+Priority: optional
+Section: libdevel
+Installed-Size: 4116
+Maintainer: GNU Libc Maintainers <debian-glibc@lists.debian.org>
+Architecture: arm
+Source: glibc
+Version: 2.7-18
+Provides: glibc-pic, libc-pic
+Depends: libc6 (= 2.7-18)
+Conflicts: libc-pic
+Filename: pool/main/g/glibc/libc6-pic_2.7-18_arm.deb
+Size: 1323710
+MD5sum: 3451dcb744ce1b89e25660ed846ccbae
+SHA1: 2f423516fda686fc5f97f3ce5948c33863ed7567
+SHA256: a0ddc19bed571883d5ac122f365a813a88f3b40dfd3801b5420dec03f2dccd6f
+Description: GNU C Library: PIC archive library
+ Contains an archive library (ar file) composed of individual shared objects.
+ This is used for creating a library which is a smaller subset of the
+ standard libc shared library. The reduced library is used on the Debian
+ boot floppies. If you are not making your own set of Debian boot floppies
+ using the `boot-floppies' package, you probably don't need this package.
+Tag: devel::lang:c, devel::library, implemented-in::c, role::app-data, suite::gnu
+
+Package: libc6-prof
+Priority: extra
+Section: libdevel
+Installed-Size: 5772
+Maintainer: GNU Libc Maintainers <debian-glibc@lists.debian.org>
+Architecture: arm
+Source: glibc
+Version: 2.7-18
+Depends: libc6 (= 2.7-18)
+Filename: pool/main/g/glibc/libc6-prof_2.7-18_arm.deb
+Size: 1777096
+MD5sum: a775d25adc2d8d03a1d5d4a385c11fa0
+SHA1: d0304e8cdec186099e492106d5e63f08ac979f40
+SHA256: 84ab84bddb13e7fc7cf419df4bdd6503b2de541b4fe618a552afeabb389d8e64
+Description: GNU C Library: Profiling Libraries
+ Static libraries compiled with profiling info (-pg) suitable for use
+ with gprof.
+Tag: devel::{lang:c,library,profiler}, implemented-in::c, role::devel-lib, suite::gnu
+
+Package: libcurl3
+Priority: optional
+Section: libs
+Installed-Size: 424
+Maintainer: Domenico Andreoli <cavok@debian.org>
+Architecture: arm
+Source: curl
+Version: 7.18.2-8lenny3
+Replaces: libcurl2 (<< 1:7.11.2-2), libcurl4
+Depends: libc6 (>= 2.7-1), libidn11 (>= 0.5.18), libkrb53 (>= 1.6.dfsg.2), libldap-2.4-2 (>= 2.4.7), libssh2-1, libssl0.9.8 (>= 0.9.8f-5), zlib1g (>= 1:1.1.4), ca-certificates
+Conflicts: libcurl4
+Filename: pool/main/c/curl/libcurl3_7.18.2-8lenny3_arm.deb
+Size: 222706
+MD5sum: 6b094a26e6dd849761655fc990fc4b74
+SHA1: 9a65b246038b9cb766c69f4fce8cfa74106c9f98
+SHA256: 087993c1e8c41b8c9fe8cca92ed1a1d21cbb2d8b2b33a7d7dd7de69e153e2572
+Description: Multi-protocol file transfer library (OpenSSL)
+ libcurl is designed to be a solid, usable, reliable and portable
+ multi-protocol file transfer library.
+ .
+ SSL support is provided by OpenSSL.
+ .
+ This is the shared version of libcurl.
+Homepage: http://curl.haxx.se
+Tag: devel::library, implemented-in::c, protocol::{ftp,http,ssl}, role::shared-lib, use::downloading
+
+Package: libcurl3-dbg
+Priority: extra
+Section: libdevel
+Installed-Size: 2544
+Maintainer: Domenico Andreoli <cavok@debian.org>
+Architecture: arm
+Source: curl
+Version: 7.18.2-8lenny3
+Replaces: libcurl4-dbg
+Provides: libcurl4-dbg
+Depends: libcurl3 (= 7.18.2-8lenny3) | libcurl3-gnutls (= 7.18.2-8lenny3)
+Suggests: libc-dbg
+Conflicts: libcurl4-dbg
+Filename: pool/main/c/curl/libcurl3-dbg_7.18.2-8lenny3_arm.deb
+Size: 1146160
+MD5sum: 46a0413f121d5bd2fbae5caf19f12015
+SHA1: 7fccc37c401a8ad0b1fc425aeafd1fc0ab928824
+SHA256: 0cc3b98b3cc4dbd2c0b40d5988589e6185026f8e711e7967de4b2d1bed6eb8d1
+Description: libcurl compiled with debug symbols
+ This contains the debug symbols of both the OpenSSL and GnuTLS versions of
+ libcurl3. It might be useful in debug sessions of software which uses libcurl.
+Homepage: http://curl.haxx.se
+Tag: devel::lang:c, devel::library, implemented-in::c, protocol::{ftp,http,ssl}, role::debug-symbols, role::shared-lib, use::downloading
+
+Package: libcurl3-gnutls
+Priority: optional
+Section: libs
+Installed-Size: 392
+Maintainer: Domenico Andreoli <cavok@debian.org>
+Architecture: arm
+Source: curl
+Version: 7.18.2-8lenny3
+Replaces: libcurl4-gnutls
+Depends: libc6 (>= 2.7-1), libgnutls26 (>= 2.4.0-0), libidn11 (>= 0.5.18), libkrb53 (>= 1.6.dfsg.2), libldap-2.4-2 (>= 2.4.7), zlib1g (>= 1:1.1.4), ca-certificates
+Conflicts: libcurl4-gnutls
+Filename: pool/main/c/curl/libcurl3-gnutls_7.18.2-8lenny3_arm.deb
+Size: 208170
+MD5sum: f5950a599590ac20776393c106e22fbb
+SHA1: a8b3e49ccdfc1e5ee08926d301fdf25f71aaf22e
+SHA256: 8f198e16218961098275c8b52c49f1e90cf138350381a4b9df15b8933141b9fa
+Description: Multi-protocol file transfer library (GnuTLS)
+ libcurl is designed to be a solid, usable, reliable and portable
+ multi-protocol file transfer library.
+ .
+ SSL support is provided by GnuTLS.
+ .
+ This is the shared version of libcurl.
+Homepage: http://curl.haxx.se
+Tag: protocol::{ftp,http,ldap,ssl}, role::shared-lib, use::downloading
+
+Package: zlib1g
+Priority: required
+Section: libs
+Installed-Size: 168
+Maintainer: Mark Brown <broonie@debian.org>
+Architecture: arm
+Source: zlib
+Version: 1:1.2.3.3.dfsg-12
+Provides: libz1
+Depends: libc6 (>= 2.7-1)
+Conflicts: zlib1 (<= 1:1.0.4-7)
+Filename: pool/main/z/zlib/zlib1g_1.2.3.3.dfsg-12_arm.deb
+Size: 75646
+MD5sum: 60bd04f4cc29344bad22ae90b9e2d72c
+SHA1: d958ca5fb16263d69a8849845bf8841319d99859
+SHA256: ff6a3facd42f2afe09fbf20da66d254dd371cc150e5a1a9b48b8972d5aacc36a
+Description: compression library - runtime
+ zlib is a library implementing the deflate compression method found
+ in gzip and PKZIP.  This package includes the shared library.
+Tag: devel::library, role::shared-lib, use::compressing
+
+Package: zlib1g-dbg
+Priority: extra
+Section: libdevel
+Installed-Size: 296
+Maintainer: Mark Brown <broonie@debian.org>
+Architecture: arm
+Source: zlib
+Version: 1:1.2.3.3.dfsg-12
+Provides: libz-dbg
+Depends: zlib1g (= 1:1.2.3.3.dfsg-12)
+Filename: pool/main/z/zlib/zlib1g-dbg_1.2.3.3.dfsg-12_arm.deb
+Size: 114146
+MD5sum: 5b4f2715e449d6870246dc57f6abbcf3
+SHA1: 9877884aaf73f9086cb6468996386ba90fd720b5
+SHA256: 7ae9fa9d708fa338c6bf9a1d3c6fb0e4cd76ba0098bc94a21009fb4b1933d58d
+Description: compression library - development
+ zlib is a library implementing the deflate compression method found
+ in gzip and PKZIP.  This package includes debugging symbols for use
+ when debugging applications which use zlib.
+Tag: role::debug-symbols
+
+Package: zlib1g-dev
+Priority: optional
+Section: libdevel
+Installed-Size: 380
+Maintainer: Mark Brown <broonie@debian.org>
+Architecture: arm
+Source: zlib
+Version: 1:1.2.3.3.dfsg-12
+Depends: 2121, 111, 11
+Pre-Depends: xyz
+Recommends: aaa
+Provides: libz-dev
+Depends: libc6-dev | libc-dev, zlib1g (= 1:1.2.3.3.dfsg-12)
+Conflicts: zlib1-dev
+Filename: pool/main/z/zlib/zlib1g-dev_1.2.3.3.dfsg-12_arm.deb
+Size: 162828
+MD5sum: b771577f77c183187f588feb565c0a22
+SHA1: 226d57ebb2a966aaf9d36954830bc4c0e75ec1c9
+SHA256: f956df9d8e743a050923e11349b526b31d3670a794eb9c001def44be91b113f0
+Description: compression library - development
+ zlib is a library implementing the deflate compression method found
+ in gzip and PKZIP.  This package includes the development support
+ files.
+Tag: devel::library, role::devel-lib, use::compressing
+
+Package: zlibc
+Priority: optional
+Section: libs
+Installed-Size: 276
+Maintainer: Francesco Paolo Lovergine <frankie@debian.org>
+Architecture: arm
+Version: 0.9k-4
+Depends: libc6 (>= 2.7-1)
+Pre-Depends: xyz
+Recommends: aaa
+Filename: pool/main/z/zlibc/zlibc_0.9k-4_arm.deb
+Size: 70962
+MD5sum: 5d20e712a3a3a931a50fc81246442553
+SHA1: 59f251a54dbc1f7d08d6d829ec693aa00514fd88
+SHA256: e846f3e48e833b8c795c6c52463c970c7387c59342902613d1b38fd936c6e0d3
+Description: An on-fly auto-uncompressing C library
+ Zlibc is a preloadable shared library that allows executables to
+ uncompress the data files that they need on the fly. No kernel patch,
+ no recompilation of these executables and no recompilation of the
+ libraries is needed.
+Homepage: http://zlibc.linux.lu/
+Tag: devel::library, role::shared-lib, use::compressing
+
