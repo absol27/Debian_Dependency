@@ -339,9 +339,6 @@ Maintainer: Mark Brown <broonie@debian.org>
 Architecture: arm
 Source: zlib
 Version: 1:1.2.3.3.dfsg-12
-Depends: 2121, 111, 11
-Pre-Depends: xyz
-Recommends: aaa
 Provides: libz-dev
 Depends: libc6-dev | libc-dev, zlib1g (= 1:1.2.3.3.dfsg-12)
 Conflicts: zlib1-dev
@@ -364,8 +361,6 @@ Maintainer: Francesco Paolo Lovergine <frankie@debian.org>
 Architecture: arm
 Version: 0.9k-4
 Depends: libc6 (>= 2.7-1)
-Pre-Depends: xyz
-Recommends: aaa
 Filename: pool/main/z/zlibc/zlibc_0.9k-4_arm.deb
 Size: 70962
 MD5sum: 5d20e712a3a3a931a50fc81246442553
