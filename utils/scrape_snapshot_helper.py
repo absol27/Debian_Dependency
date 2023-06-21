@@ -1,18 +1,24 @@
 import requests
 import gzip
 import datetime
+from os.path import exists
 
-def get_debian_bydate(date, ARCH="arm"):
+def get_debian_bydate(date, ARCH="arm64"):
     for DFSG in ["main", "contrib", "non-free"]:
-        url = f"http://snapshot.debian.org/archive/debian/{date}/dists/stable/{DFSG}/binary-{ARCH}/Packages.gz"
-        resp = requests.get(url)
-        if resp.status_code == 200:
-            decompressed_file = gzip.decompress(resp.content)
-            with open(f"Packagelist_DUMP/{date}-{ARCH}-{DFSG}_Packages", "w") as f:
-                f.write(decompressed_file.decode('utf-8'))
-        else:
-            print("Error: " + str(resp.status_code), url)
-    return date
+        if exists(f"Packagelist_DUMP/{date}-{ARCH}-{DFSG}_Packages"):
+            continue # don't re-download
+        while True:
+            url = f"http://snapshot.debian.org/archive/debian/{date}/dists/stable/{DFSG}/binary-{ARCH}/Packages.gz"
+            resp = requests.get(url)
+            if resp.status_code == 200:
+                decompressed_file = gzip.decompress(resp.content)
+                with open(f"Packagelist_DUMP/{date}-{ARCH}-{DFSG}_Packages", "w") as f:
+                    f.write(decompressed_file.decode('utf-8'))
+                break
+            else:
+                print("Error: " + str(resp.status_code), url)
+                print("Retrying...")
+    return
 
 def date_to_ISO(date):
     date_object = datetime.datetime.strptime(date, "%Y-%m-%d")

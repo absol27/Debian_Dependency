@@ -1,5 +1,4 @@
-# Description: Test script to get debian packages by date and generate a graph
-# Ignore this file
+# Description: Optional file to generate graph.html file to view the graph
 
 import networkx as nx
 from pyvis.network import Network

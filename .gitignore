@@ -6,3 +6,5 @@
 
 # Ignore .DS_Store files everywhere
 **/.DS_Store
+
+Packagelist_DUMP/20*

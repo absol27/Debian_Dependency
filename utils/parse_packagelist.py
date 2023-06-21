@@ -9,7 +9,9 @@ def parse_packagelist(date, ARCH, db_location, DFSG):
         for line in rf:
             if line == "\n":
                 parsed_package =  parser.parse_string(header).normalized_dict()
+                parsed_package["added_at"] = date
                 cur = con.cursor()
+                parsed_package["architecture"] = ARCH
                 insert_package(cur, parsed_package, DFSG)
                 con.commit()
                 header = ""
@@ -26,13 +28,13 @@ def parse_dependencylist(date, ARCH, db_location, DFSG):
             if line == "\n":
                 parsed_package =  parser.parse_string(header).normalized_dict()
                 for dependency_list in parsed_package["depends"]:
-                    for dependency in dependency_list:
-                        if '(' in dependency:
-                            dependency_package_name = dependency.split('(')[0]
+                    for dependency_condition in dependency_list:
+                        if '(' in dependency_condition:
+                            dependency_package_name = dependency_condition.split('(')[0]
                         else:
-                            dependency_package_name = dependency
+                            dependency_package_name = dependency_condition
                         cur = con.cursor()
-                        insert_dependeny(cur, {"package": parsed_package["package"], "condition": dependency, "dependency": dependency_package_name})
+                        insert_dependeny(cur, parsed_package["package"], parsed_package["version"], ARCH, dependency_condition, dependency_package_name)
                         con.commit()
                 header = ""
             else:
@@ -40,8 +42,7 @@ def parse_dependencylist(date, ARCH, db_location, DFSG):
     close_db(con)
     return
 
-def populate_DB(date, ARCH):
-    LOCATION = 'debian_packages.db'
+def populate_DB(date, ARCH, LOCATION):
     init_db(LOCATION)
     for DFSG in ["main", "contrib", "non-free"]:
         parse_packagelist(date, ARCH, LOCATION, DFSG)
