@@ -5,14 +5,9 @@ Generate a network graph of the dependencies.
 
 ## Steps
 
-- Set Architecture and Date in scrape_snpashot.py
-- Fetches neareast available snapshot and the stable distro at the set date
-- Downloads metadata of binary packages in main, non-free and contrib (for that ARCH)
+- Set Architecture and Dates in scrape_snpashot.py
+- Fetches nearest available snapshot and the stable distro at the set date
+- Downloads metadata of **published** binary packages in main, non-free, and contrib (for that ARCH)
 - Decompresses and stores the metadata in Packagelist_DUMP
-- Parse package info and insert in DB
-- Parse dependencies for each package and insert into a table linking to the package table
-
-## Todo
-
-- Integrate code with other components of debian supply chain
-- Currently runs for one date and selected ARCH
+- Parse package info and insert it in DB
+- Parse dependencies for each package and insert them into a table linking to the package table
