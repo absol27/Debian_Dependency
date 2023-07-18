@@ -14,6 +14,19 @@ from utils.DB_helper import *
 
 # generate_graph(date = "sample", ARCH= "sample") # sample graph for a smaller subset of data, using Packagelist_DUMP test file
 
+if __name__ == "__main__":
+    LOCATION = 'debian_packages.db'
+    ARCH = "amd64"
+    date = datetime.date(2016, 12, 31)
+    end_date = datetime.date(2022, 12, 31)
+    while date < end_date:
+        print(date.strftime("%Y-%m-%d"))
+        get_debian_bydate(date_to_ISO(date.strftime("%Y-%m-%d")), ARCH)
+        populate_DB(date_to_ISO(date.strftime("%Y-%m-%d")), ARCH, LOCATION)
+        # generate_graph(date, ARCH)
+        date += datetime.timedelta(days=90)
+    pass
+
 def SQL_query(sql):
     conn = open_db()
     cur = conn.cursor()
@@ -21,19 +34,6 @@ def SQL_query(sql):
     result = cur.fetchall()
     conn.close()
     return result
-
-if __name__ == "__main__":
-    LOCATION = 'debian_packages.db'
-    ARCH = "arm64"
-    date = datetime.date(2016, 12, 31)
-    end_date = datetime.date(2022, 12, 31)
-    while date < end_date:
-        print(date.strftime("%Y-%m-%d"))
-        get_debian_bydate(date_to_ISO(date.strftime("%Y-%m-%d")))
-        populate_DB(date_to_ISO(date.strftime("%Y-%m-%d")), ARCH, LOCATION)
-        # generate_graph(date, ARCH)
-        date += datetime.timedelta(days=90)
-    pass
 
     # analyze and plot the DB for the following: 
     # 1. number of packages that are new by added_at date (i.e. first snapshot they appear in)

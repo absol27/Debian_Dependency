@@ -12,7 +12,15 @@ def parse_packagelist(date, ARCH, db_location, DFSG):
                 parsed_package["added_at"] = date
                 cur = con.cursor()
                 parsed_package["architecture"] = ARCH
+                parsed_package["provided_by"] = ""
                 insert_package(cur, parsed_package, DFSG)
+                provided_by = cur.lastrowid
+                for provided_package in parsed_package["provides"]:
+                    parsed_package["package"] = provided_package
+                    parsed_package["version"] = ""
+                    parsed_package["size"] = ""
+                    parsed_package["provided_by"] = provided_by
+                    insert_package(cur, parsed_package, DFSG)
                 con.commit()
                 header = ""
             else:
@@ -29,13 +37,15 @@ def parse_dependencylist(date, ARCH, db_location, DFSG):
                 parsed_package =  parser.parse_string(header).normalized_dict()
                 for dependency_list in parsed_package["depends"]:
                     for dependency_condition in dependency_list:
-                        if '(' in dependency_condition:
-                            dependency_package_name = dependency_condition.split('(')[0]
-                        else:
-                            dependency_package_name = dependency_condition
-                        cur = con.cursor()
-                        insert_dependeny(cur, parsed_package["package"], parsed_package["version"], ARCH, dependency_condition, dependency_package_name)
-                        con.commit()
+                        packages = dependency_condition.split('|') if '|' in dependency_condition else [dependency_condition]
+
+                        for dependency_package_name in packages:
+                            if '(' in dependency_package_name:
+                                dependency_package_name = dependency_package_name.split('(')[0]
+                            
+                            cur = con.cursor()
+                            insert_dependency(cur, parsed_package["package"], parsed_package["version"], ARCH, dependency_condition, dependency_package_name)
+                            con.commit()
                 header = ""
             else:
                 header += line
