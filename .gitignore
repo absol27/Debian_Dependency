@@ -8,3 +8,10 @@
 **/.DS_Store
 
 Packagelist_DUMP/20*
+
+# Ignore .env files
+venv/*
+
+# ignore db files
+*.db
+*.db-journal
